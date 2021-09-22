@@ -11,6 +11,21 @@ on:
     branches: [master]
 
 jobs:
+  compile:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up JDK 8
+        uses: actions/setup-java@v2
+        with:
+          java-version: '8'
+          distribution: 'adopt'
+          cache: maven
+      - name: Compile
+        run: mvn compile
+      - name: Test
+        run: mvn test
+
   build:
     runs-on: ubuntu-latest
     steps:
@@ -21,9 +36,18 @@ jobs:
           java-version: '8'
           distribution: 'adopt'
           cache: maven
-      - name: Test
-        run: mvn test
       - name: Build
         run: mvn clean install
-      - name : Deploy
+
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up JDK 8
+        uses: actions/setup-java@v2
+        with:
+          java-version: '8'
+          distribution: 'adopt'
+          cache: maven
+      - name: Deploy to S3
         run: mvn compile
