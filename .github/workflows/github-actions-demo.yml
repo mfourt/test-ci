@@ -21,5 +21,9 @@ jobs:
           java-version: '8'
           distribution: 'adopt'
           cache: maven
-      - name: Build with Maven
-        run: mvn -B package --file pom.xml
+      - name: Test
+        run: mvn test
+      - name: Build
+        run: mvn clean install
+      - name : Deploy
+        run: mvn compile
