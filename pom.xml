@@ -18,6 +18,26 @@
     <maven.compiler.target>1.7</maven.compiler.target>
   </properties>
 
+  <profiles>
+    <profile>
+      <id>developement</id>
+      <repositories>
+        <repository>
+          <id>central</id>
+          <url>https://repo1.maven.org/maven2</url>
+        </repository>
+        <repository>
+          <id>github</id>
+          <url>https://maven.pkg.github.com/mfourt/*</url>
+          <snapshots>
+            <enabled>true</enabled>
+          </snapshots>
+        </repository>
+      </repositories>
+    </profile>
+  </profiles>
+
+
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
@@ -72,4 +92,14 @@
       </plugins>
     </pluginManagement>
   </build>
+
+  <distributionManagement>
+    <repository>
+      <id>github</id>
+      <name>GitHub OWNER Apache Maven Packages</name>
+      <url>https://maven.pkg.github.com/mfourt/test-ci</url>
+    </repository>
+  </distributionManagement>
+
+
 </project>
