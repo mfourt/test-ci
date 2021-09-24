@@ -43,6 +43,6 @@ jobs:
           distribution: 'adopt'
           cache: maven
       - name: Build
-        run: echo "${{ env.NEXTVERSION }}"
+        run: echo "${{ env.INPUT_NEXTVERSION }}"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
