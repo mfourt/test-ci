@@ -42,7 +42,11 @@ jobs:
           java-version: '8'
           distribution: 'adopt'
           cache: maven
-      - name: Build
-        run: mvn --batch-mode -DdryRun=true -Dtag=${{ github.event.inputs.release_version }} release:prepare -DreleaseVersion=${{ github.event.inputs.release_version }} -DdevelopmentVersion=${{ github.event.inputs.next_version }}
+      - name: prepare
+        run: mvn --batch-mode -Dtag=${{ github.event.inputs.release_version }} release:prepare -DreleaseVersion=${{ github.event.inputs.release_version }} -DdevelopmentVersion=${{ github.event.inputs.next_version }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: perform
+        run: mvn --batch-mode release:perform
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
