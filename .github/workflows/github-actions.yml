@@ -43,6 +43,6 @@ jobs:
           distribution: 'adopt'
           cache: maven
       - name: Build
-        run: mvn --batch-mode -DdryRun=true -Dtag=${{inputs.releaseVersion}} release:prepare -DreleaseVersion=${{inputs.releaseVersion}} -DdevelopmentVersion=${{inputs.nextVersion}}
+        run: echo ${{inputs.releaseVersion}}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
