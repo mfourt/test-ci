@@ -48,6 +48,13 @@
   </dependencies>
 
   <build>
+    <extensions>
+        <extension>
+            <groupId>com.gkatzioura.maven.cloud</groupId>
+            <artifactId>s3-storage-wagon</artifactId>
+            <version>2.3</version>
+        </extension>
+    </extensions>
     <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
       <plugins>
         <!-- clean lifecycle, see https://maven.apache.org/ref/current/maven-core/lifecycles.html#clean_Lifecycle -->
@@ -93,13 +100,26 @@
     </pluginManagement>
   </build>
 
-  <distributionManagement>
+ <distributionManagement>
     <repository>
       <id>github</id>
       <name>GitHub OWNER Apache Maven Packages</name>
       <url>https://maven.pkg.github.com/mfourt/test-ci</url>
     </repository>
   </distributionManagement>
+
+
+  <!--<distributionManagement>
+    <snapshotRepository>
+        <id>repo-bucket-snapshot</id>
+        <url>s3://apidae-sit-releases/snapshot</url>
+    </snapshotRepository>
+    <repository>
+        <id>my-repo-bucket-release</id>
+        <url>s3://apidae-sit-releases/release</url>
+    </repository>
+</distributionManagement>-->
+
 
 
 </project>
