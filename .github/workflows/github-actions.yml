@@ -43,6 +43,6 @@ jobs:
           distribution: 'adopt'
           cache: maven
       - name: Build
-        run: echo ${INPUT_RELEASEVERSION}
+        run: echo "${INPUT_RELEASEVERSION}"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
