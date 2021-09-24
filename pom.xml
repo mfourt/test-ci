@@ -121,9 +121,9 @@
 </distributionManagement>-->
 
 <scm>
-  <url>git@github.com:mfourt/test-ci.git</url>
-  <connection>scm:git:git@github.com:mfourt/test-ci.git</connection>
-  <developerConnection>scm:git@github.com:mfourt/test-ci.git</developerConnection>
+  <url>https://github.com/mfourt/test-ci/tree/master</url>
+  <connection>scm:git:git://github.com/mfourt/test-ci.git</connection>
+  <developerConnection>scm:git:git@github.csom:mfourt/test-ci.git</developerConnection>
 </scm>
 
 
