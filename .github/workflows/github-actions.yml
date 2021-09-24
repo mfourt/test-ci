@@ -7,10 +7,10 @@ name: Java CI with Maven
 on:
   workflow_dispatch:
     inputs:
-      releaseVersion: # id of input
+      release_version: # id of input
           description: "Release version to apply"
           required: true
-      nextVersion: # id of input
+      next_version: # id of input
         description: "SNAPSHOT number of the next development version"
         required: true
 
@@ -43,6 +43,6 @@ jobs:
           distribution: 'adopt'
           cache: maven
       - name: Build
-        run: echo "${{ env.INPUT_NEXTVERSION }}"
+        run: echo "${{ inputs.next_version }}"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
