@@ -7,12 +7,12 @@ name: Java CI with Maven
 on:
   workflow_dispatch:
     inputs:
+      releaseVersion: # id of input
+          description: "Release version to apply"
+          required: true
       nextVersion: # id of input
         description: "SNAPSHOT number of the next development version"
         required: true
-      releaseVersion: # id of input
-          description: "Release number of the next development version"
-          required: true
 
 jobs:
   build:
@@ -43,6 +43,6 @@ jobs:
           distribution: 'adopt'
           cache: maven
       - name: Build
-        run: mvn --batch-mode -DdryRun=true -Dtag=${INPUT_RELEASEVERSION} release:prepare -DreleaseVersion=${INPUT_RELEASEVERSION} -DdevelopmentVersion=${INPUT_NEXTVERSION}
+        run: mvn --batch-mode -DdryRun=true -Dtag=${{inputs.releaseVersion}} release:prepare -DreleaseVersion=${{inputs.releaseVersion}} -DdevelopmentVersion=${{inputs.nextVersion}}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
