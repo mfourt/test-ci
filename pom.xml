@@ -120,6 +120,11 @@
     </repository>
 </distributionManagement>-->
 
+<scm>
+  <url>git@github.com:mfourt/test-ci.git</url>
+  <connection>scm:git:git@github.com:mfourt/test-ci.git</connection>
+  <developerConnection>scm:git:git@github.com:mfourt/test-ci.git</developerConnection>
+</scm>
 
 
 </project>
