@@ -36,8 +36,6 @@ jobs:
       packages: write
     steps:
       - uses: actions/checkout@v2
-        with:
-          token: ${{ secrets.TOKEN.TOKEN_TEST }}
       - name: Set up JDK 8
         uses: actions/setup-java@v2
         with:
