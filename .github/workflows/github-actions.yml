@@ -46,6 +46,12 @@ jobs:
         run: git config user.email "actions@github.com"
       - name: Configure Git username
         run: git config user.name "GitHub Actions"
+      - name: Configure Git remote
+        run: git remote rename origin old
+      - name: Configure Git remote
+        run: git remote add origin "https://$GITHUB_TOKEN@github.com/mfourt/test-ci.git"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: prepare
         run: mvn --batch-mode -Dtag=${{ github.event.inputs.release_version }} release:prepare -DreleaseVersion=${{ github.event.inputs.release_version }} -DdevelopmentVersion=${{ github.event.inputs.next_version }}
         env:
