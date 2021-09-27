@@ -47,7 +47,7 @@ jobs:
       - name: Configure Git username
         run: git config user.name "GitHub Actions"
       - name: prepare
-        run: mvn --batch-mode -Dpassword=${{ secrets.GITHUB_TOKEN }} -Dtag=${{ github.event.inputs.release_version }} release:prepare -DreleaseVersion=${{ github.event.inputs.release_version }} -DdevelopmentVersion=${{ github.event.inputs.next_version }}
+        run: mvn --batch-mode -Dtag=${{ github.event.inputs.release_version }} release:prepare -DreleaseVersion=${{ github.event.inputs.release_version }} -DdevelopmentVersion=${{ github.event.inputs.next_version }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: perform
